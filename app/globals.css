@@ -132,7 +132,8 @@
     @apply bg-background text-foreground;
   }
   html {
-    @apply font-sans;
+    /* Header links stop sections just below the sticky header. */
+    @apply font-sans scroll-pt-24 motion-safe:scroll-smooth sm:scroll-pt-18;
   }
   h1,
   h2,
