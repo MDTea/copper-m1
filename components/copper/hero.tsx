@@ -1,24 +1,12 @@
 import Image from "next/image";
+import { CUTOUT_SIZE, cutoutAlt } from "@/components/copper/product-images";
 import { Button } from "@/components/ui/button";
 import type { Product, ProductId } from "@/lib/copper/catalog";
-
-// The cutouts are square PNGs on transparent backgrounds.
-const CUTOUT_SIZE = 1254;
-
-// What each cutout photo shows, added to the product name for its alt text.
-const CUTOUT_DETAILS: Record<ProductId, string> = {
-  "copper-home": "with copper fabric and a clock display",
-  "copper-notes": "in brushed copper with a glowing ring",
-};
 
 function findProduct(products: Product[], id: ProductId): Product {
   const product = products.find((p) => p.id === id);
   if (!product) throw new Error(`The catalog has no product "${id}".`);
   return product;
-}
-
-export function cutoutAlt(product: Product): string {
-  return `${product.name} ${product.type} ${CUTOUT_DETAILS[product.id]}`;
 }
 
 export function Hero({ products }: { products: Product[] }) {

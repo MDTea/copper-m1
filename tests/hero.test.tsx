@@ -1,6 +1,7 @@
 import { render, screen, within } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
-import { cutoutAlt, Hero } from "@/components/copper/hero";
+import { Hero } from "@/components/copper/hero";
+import { cutoutAlt } from "@/components/copper/product-images";
 import { getProducts } from "@/lib/copper/catalog";
 
 describe("Hero", () => {

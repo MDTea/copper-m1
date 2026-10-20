@@ -1,4 +1,5 @@
 import { Hero } from "@/components/copper/hero";
+import { Products } from "@/components/copper/products";
 import { SiteFooter } from "@/components/copper/site-footer";
 import { SiteHeader } from "@/components/copper/site-header";
 import { getProducts } from "@/lib/copper/catalog";
@@ -11,6 +12,7 @@ export default function Home() {
       <SiteHeader />
       <main className="flex-1">
         <Hero products={products} />
+        <Products products={products} />
       </main>
       <SiteFooter />
     </>

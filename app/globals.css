@@ -45,6 +45,12 @@
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
+  /* Fixed brand colors for things that shouldn't change in dark mode,
+     like product color swatches. */
+  --color-copper: #b87333;
+  --color-patina: #4a8c82;
+  --color-sand: #efe3d0;
+  --color-night-sky: #1c2333;
 }
 
 /*
