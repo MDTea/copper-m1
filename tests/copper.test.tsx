@@ -47,4 +47,14 @@ describe("Brand components", () => {
       "Fictional — for educational use.",
     );
   });
+
+  it("SiteFooter has its test id and the logo for dark backgrounds", () => {
+    render(<SiteFooter />);
+    expect(screen.getByTestId("site-footer")).toBeInTheDocument();
+    const logos = within(screen.getByRole("contentinfo")).getAllByAltText(
+      "Copper State Labs",
+    );
+    expect(logos).toHaveLength(1);
+    expect(logos[0].getAttribute("src")).toMatch(/logo-dark\.png/);
+  });
 });
