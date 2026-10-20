@@ -62,7 +62,9 @@ function ProductCard({ product }: { product: Product }) {
           <CardTitle>
             <h3 className="text-2xl font-extrabold">{product.name}</h3>
           </CardTitle>
-          <CardDescription className="text-base">{product.type}</CardDescription>
+          <CardDescription className="text-base">
+            {product.type}
+          </CardDescription>
         </div>
         <p className="font-heading text-primary text-3xl font-extrabold">
           {formatUsd(product.priceUsd)}
