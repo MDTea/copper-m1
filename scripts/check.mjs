@@ -21,10 +21,12 @@ if (paths.length === 0) {
 }
 
 const output = join(mkdtempSync(join(tmpdir(), "check-")), "results.json");
-spawnSync(
-  "npx",
+// Run vitest through node itself: on Windows, spawnSync can't start `npx`
+// (it's a .cmd file) without a shell.
+const run = spawnSync(
+  process.execPath,
   [
-    "vitest",
+    join("node_modules", "vitest", "vitest.mjs"),
     "run",
     "--config",
     "vitest.check.config.mts",
@@ -34,6 +36,9 @@ spawnSync(
   ],
   { stdio: ["ignore", "ignore", "inherit"] },
 );
+if (run.error) {
+  console.error(`Couldn't start vitest: ${run.error.message}`);
+}
 if (!existsSync(output)) {
   console.error(
     "The tests didn't run. Try `npm ci`, then run `npm run check` again.",
